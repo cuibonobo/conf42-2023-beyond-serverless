@@ -44,3 +44,20 @@ Run the development server with:
 ```powershell
 npm run dev
 ```
+
+---
+
+Add the `index.html` file from the [Reveal.js](https://revealjs.com) repo to the root of this repository. Then update `src/index.js` to this:
+```javascript
+import slides from "../index.html";
+
+export default {
+	async fetch(request, env, ctx) {
+		return new Response(slides, {
+      headers: {"content-type": "text/html;charset=UTF-8"}
+    });
+	},
+};
+```
+
+Running the dev server again should show the base presentation HTML.
