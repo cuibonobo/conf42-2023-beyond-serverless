@@ -1,0 +1,29 @@
+{
+  "name": "conf42-2023-beyond-serverless",
+  "version": "1.0.0",
+  "description": "Slides for Conf42 Javascript 2023 presentation: \"Beyond Serverless: Taking advantage of new standards for Javascript runtimes\"",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuibonobo/conf42-2023-beyond-serverless.git"
+  },
+  "keywords": [
+    "conference",
+    "presentation",
+    "serverless"
+  ],
+  "author": "Jen Garcia <jen@haverstack.com> (https://haverstack.com/)",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/cuibonobo/conf42-2023-beyond-serverless/issues"
+  },
+  "homepage": "https://github.com/cuibonobo/conf42-2023-beyond-serverless#readme",
+  "devDependencies": {
+    "wrangler": "^3.14.0"
+  }
+}
