@@ -6,7 +6,9 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "sync": "node ./sync.js",
+    "sync:remote": "node ./sync.js --remote"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/cuibonobo/conf42-2023-beyond-serverless#readme",
   "devDependencies": {
+    "diveSync": "^0.3.0",
     "wrangler": "^3.14.0"
   }
 }

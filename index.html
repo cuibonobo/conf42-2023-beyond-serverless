@@ -6,26 +6,45 @@
 
 		<title>Conf42 2023 - Beyond Serverless</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/night.css">
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/night.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="hide-menubar">Title Slide</section>
+				<section data-name="First menu item">
+					<section>One</section>
+					<section>Two</section>
+					<section>Three</section>
+				</section>
+				<section data-name="Second menu item">
+					<section>Four</section>
+					<section>Five</section>
+					<section>Six</section>
+				</section>
+				<section data-state="hide-menubar">Outro Slide</section>
 			</div>
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+		<script src="/static/plugin/verticator/verticator.js"></script>
+		<script src="/static/plugin/simplemenu/simplemenu.js"></script>
 		<script>
 			Reveal.initialize({
 				hash: true,
-				plugins: [ RevealHighlight, RevealNotes ]
+				plugins: [ RevealHighlight, RevealNotes, Verticator, Simplemenu ],
+				simplemenu: {
+					barhtml: {
+						header: "",
+						footer: "<div class='menubar'><ul class='menu'></ul><div>"
+					},
+					scale: 0.3,
+				}
 			});
 		</script>
 	</body>
