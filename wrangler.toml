@@ -1,7 +1,3 @@
 name = "conf42-2023-beyond-serverless"
 main = "src/index.js"
 compatibility_date = "2023-10-16"
-
-[[r2_buckets]]
-binding = "STATIC_ASSETS"
-bucket_name = "conf42-2023-static-assets"

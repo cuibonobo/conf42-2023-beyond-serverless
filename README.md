@@ -36,7 +36,7 @@ Add Wrangler scripts to the `"scripts"` key in `package.json`:
 {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "npm run dev"
 }
 ```
 
@@ -54,8 +54,8 @@ import slides from "../index.html";
 export default {
 	async fetch(request, env, ctx) {
 		return new Response(slides, {
-      headers: {"content-type": "text/html;charset=UTF-8"}
-    });
+            headers: {"content-type": "text/html;charset=UTF-8"}
+        });
 	},
 };
 ```
@@ -66,33 +66,14 @@ To get the slides to actually work, change all of the asset URLs in `index.html`
 
 ---
 
-To be able to run custom reveal.js plugins, we need to be able to serve static assets from our worker. Create a `static` folder at the root of the repo and add the reveal.js plugin folders.
+To be able to run custom reveal.js plugins, we need to be able to serve static assets from our worker. Create a `public` folder at the root of the repo and add the reveal.js plugin folders.
 
-Create a new Cloudflare R2 bucket for the static assets:
-```powershell
-npx wrangler r2 bucket create conf42-2023-static-assets
-```
-
-Add the following section to `wrangler.toml` to bind the bucket to the worker:
-```toml
-[[r2_buckets]]
-binding = "STATIC_ASSETS"
-bucket_name = "conf42-2023-static-assets"
-```
-
-Install a package for walking directory trees:
-```powershell
-npm install --save-dev diveSync
-```
-
-Add the `sync.js` script along with its `package.json` scripts:
+Update the `package.json` scripts to include the new folder:
 ```json
 {
-    "sync": "node ./sync.js",
-    "sync:remote": "node ./sync.js --remote"
+    "deploy": "wrangler deploy --assets public/",
+    "dev": "wrangler dev --assets public/"
 }
 ```
 
-Run `npm run sync` and `npm run sync:remote` to sync the static files to your local and remote R2 stores. Then, update `src/index.js` to [retrieve objects from R2 for `GET` requests](https://developers.cloudflare.com/r2/api/workers/workers-api-usage/#4-access-your-r2-bucket-from-your-worker).
-
-Finally, update `index.html` with the changes needed for the new reveal.js plugins.
+Finally, update `index.html` to add the new reveal.js plugin scripts and add any necessary configuration.

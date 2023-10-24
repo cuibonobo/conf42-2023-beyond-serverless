@@ -4,11 +4,9 @@
   "description": "Slides for Conf42 Javascript 2023 presentation: \"Beyond Serverless: Taking advantage of new standards for Javascript runtimes\"",
   "main": "index.html",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "sync": "node ./sync.js",
-    "sync:remote": "node ./sync.js --remote"
+    "deploy": "wrangler deploy --assets public/",
+    "dev": "wrangler dev --assets public/",
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
@@ -26,7 +24,6 @@
   },
   "homepage": "https://github.com/cuibonobo/conf42-2023-beyond-serverless#readme",
   "devDependencies": {
-    "diveSync": "^0.3.0",
     "wrangler": "^3.14.0"
   }
 }
